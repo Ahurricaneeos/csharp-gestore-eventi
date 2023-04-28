@@ -1,6 +1,6 @@
 ﻿using csharp_gestore_eventi;
 
-Console.Write("Inserisci il nome dell'evento: ");
+/* Console.Write("Inserisci il nome dell'evento: ");
 string title = Console.ReadLine();
 Console.Write("Inserisci la data dell'evento: ");
 DateTime date = DateTime.Parse(Console.ReadLine());
@@ -10,16 +10,8 @@ Console.Write("Quanti posti desideri prenotare? ");
 int reservedPlaces  = int.Parse(Console.ReadLine());
 
 Evento evento1 = new Evento(title, date, places, reservedPlaces);
-Evento evento2 = new Evento(title, date, places, reservedPlaces);
-Evento evento3 = new Evento(title, date, places, reservedPlaces);
-List<Evento> events = new List<Evento>
-{
-    evento1, evento2, evento3
-};
 
-ProgrammaEventi.StampEventList(events);
-
-/* Console.WriteLine();
+Console.WriteLine();
 Console.WriteLine("Numero posti prenotati: " + evento1.GetPlaces());
 int availablePlaces = places - reservedPlaces;
 Console.WriteLine("Numero posti disponibili: " + availablePlaces);
@@ -45,3 +37,26 @@ while (wantCancelPlaces == false)
     Console.WriteLine("Numero di posti prenotati: " + reservedPlaces);
     Console.WriteLine("Numero di posti disponibili: " + availablePlaces);
 } */
+
+Console.Write("Inserisci titolo del tuo programma: ");
+string title = Console.ReadLine();
+
+
+ProgrammaEventi programma = new ProgrammaEventi(title);
+
+Console.WriteLine("Indica il numero di eventi da inserire: ");
+int userNumberOfEvents = int.Parse(Console.ReadLine());
+
+for  (int i = 0; i < userNumberOfEvents; i++)
+{
+    Console.Write("Inserisci il nome del " + (i + 1) + "evento: ");
+    string eventTitle = Console.ReadLine();
+    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+    DateTime date = DateTime.Parse(Console.ReadLine());
+    Console.WriteLine("Inserisci il numero di posti totali: ");
+    int capacity = int.Parse(Console.ReadLine());
+    int places = 0;
+    Evento evento = new Evento(title, date, capacity, places);
+    programma.AddEvents(evento);
+}
+
