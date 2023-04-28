@@ -10,7 +10,16 @@ Console.Write("Quanti posti desideri prenotare? ");
 int reservedPlaces  = int.Parse(Console.ReadLine());
 
 Evento evento1 = new Evento(title, date, places, reservedPlaces);
-Console.WriteLine();
+Evento evento2 = new Evento(title, date, places, reservedPlaces);
+Evento evento3 = new Evento(title, date, places, reservedPlaces);
+List<Evento> events = new List<Evento>
+{
+    evento1, evento2, evento3
+};
+
+ProgrammaEventi.StampEventList(events);
+
+/* Console.WriteLine();
 Console.WriteLine("Numero posti prenotati: " + evento1.GetPlaces());
 int availablePlaces = places - reservedPlaces;
 Console.WriteLine("Numero posti disponibili: " + availablePlaces);
@@ -35,6 +44,4 @@ while (wantCancelPlaces == false)
     }
     Console.WriteLine("Numero di posti prenotati: " + reservedPlaces);
     Console.WriteLine("Numero di posti disponibili: " + availablePlaces);
-}
-
-evento1.ToString();
+} */

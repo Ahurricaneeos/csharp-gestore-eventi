@@ -11,7 +11,7 @@ namespace csharp_gestore_eventi
         string title;
         List<Evento> events = new List<Evento>();
 
-        ProgrammaEventi(string title, List<Evento> events)
+        public ProgrammaEventi(string title, List<Evento> events)
         {
             this.title = title;
             this.events = events;
@@ -28,19 +28,19 @@ namespace csharp_gestore_eventi
             events.Add(addedEvent);
         }
 
-        public void DateOfEvents(DateTime dateEvent) 
+        public void DateOfEvents(DateTime dateEvent)
         {
             foreach (Evento events in events)
-            if (dateEvent == events.GetDate())
-            {
-                Console.WriteLine(events);
-            }
+                if (dateEvent == events.GetDate())
+                {
+                    Console.WriteLine(events);
+                }
         }
 
         public static void StampEventList(List<Evento> events)
         {
-            foreach (Evento addedEvents in events)
-            Console.WriteLine(events);
+            foreach (Evento events in events)
+                Console.WriteLine(events);
         }
 
         public void DeleteEvents(List<Evento> events)
@@ -52,14 +52,16 @@ namespace csharp_gestore_eventi
         {
             return events.Count();
         }
-        public override string ToString()
+
+        public string ListToString()
         {
-            string stamp = title + "\n";
+            string str = title;
             foreach (Evento events in events)
             {
-                stamp = stamp + "\t" + events.ToString() + "\n";
+                str = str + "-" + events.ToString();
             }
-            return stamp;
+            return str;
         }
     }
 }
+
