@@ -14,3 +14,25 @@ Console.WriteLine();
 Console.WriteLine("Numero posti prenotati: " + evento1.GetPlaces());
 int availablePlaces = places - reservedPlaces;
 Console.WriteLine("Numero posti disponibili: " + availablePlaces);
+
+bool wantCancelPlaces  = false;
+while (wantCancelPlaces == false)
+{
+    Console.WriteLine("Vuoi disdire dei posti? y/n");
+    string userInputYN = Console.ReadLine();
+    if (userInputYN == "n")
+    {
+        Console.WriteLine("Ok va bene!");
+        wantCancelPlaces = true;
+    }
+    else
+    {
+        Console.WriteLine("Indica il numero di posti da disdire: ");
+        int cancelledPlaces = int.Parse(Console.ReadLine());
+        evento1.CancelPlaces(cancelledPlaces);
+        reservedPlaces = reservedPlaces - cancelledPlaces;
+        availablePlaces = availablePlaces + cancelledPlaces;
+    }
+    Console.WriteLine("Numero di posti prenotati: " + reservedPlaces);
+    Console.WriteLine("Numero di posti disponibili: " + availablePlaces);
+}
