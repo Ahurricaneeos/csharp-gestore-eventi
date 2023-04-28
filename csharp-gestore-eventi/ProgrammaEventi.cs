@@ -43,17 +43,17 @@ namespace csharp_gestore_eventi
                 Console.WriteLine(events);
         }
 
-        public void DeleteEvents(List<Evento> events)
+        public static void DeleteEvents(List<Evento> events)
         {
             events.Clear();
         }
 
-        public int ListLenght(List<Evento> events)
+        public static int ListLenght(List<Evento> events)
         {
-            return events.Count();
+            return events.Count;
         }
 
-        public string ListToString(List<Evento> events)
+        public override string ToString()
         {
             string str = title;
             foreach (Evento listevents in events)

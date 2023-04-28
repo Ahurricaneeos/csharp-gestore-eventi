@@ -39,24 +39,33 @@ while (wantCancelPlaces == false)
 } */
 
 Console.Write("Inserisci titolo del tuo programma: ");
-string title = Console.ReadLine();
+string programTitle = Console.ReadLine();
 
 
-ProgrammaEventi programma = new ProgrammaEventi(title);
+ProgrammaEventi programma = new ProgrammaEventi(programTitle);
 
 Console.WriteLine("Indica il numero di eventi da inserire: ");
 int userNumberOfEvents = int.Parse(Console.ReadLine());
 
 for  (int i = 0; i < userNumberOfEvents; i++)
 {
-    Console.Write("Inserisci il nome del " + (i + 1) + "evento: ");
-    string eventTitle = Console.ReadLine();
-    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
-    DateTime date = DateTime.Parse(Console.ReadLine());
-    Console.WriteLine("Inserisci il numero di posti totali: ");
-    int capacity = int.Parse(Console.ReadLine());
-    int places = 0;
-    Evento evento = new Evento(title, date, capacity, places);
-    programma.AddEvents(evento);
+    try
+    {
+        Console.Write("Inserisci il nome del " + (i + 1) + " evento: ");
+        string eventTitle = Console.ReadLine();
+        Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+        DateTime date = DateTime.Parse(Console.ReadLine());
+        Console.WriteLine("Inserisci il numero di posti totali: ");
+        int capacity = int.Parse(Console.ReadLine());
+        int places = 0;
+        Evento evento = new Evento(eventTitle, date, capacity, places);
+        programma.AddEvents(evento);
+    } catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
 }
 
+Console.Write("Il numero di eventi nel programma è: ");
+Console.WriteLine("Ecco il tuo programma eventi: ");
+Console.WriteLine(programma.ToString());
