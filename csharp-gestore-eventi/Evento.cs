@@ -18,7 +18,7 @@ namespace csharp_gestore_eventi
             SetTitle(title);
             SetDate(date);
             SetCapacity(capacity);
-            this.places = 0;
+            SetPlaces(places);
         }
           
         public string GetTitle() { return title; }
@@ -43,6 +43,14 @@ namespace csharp_gestore_eventi
             if (capacity < 0)
             { throw new Exception("La capacità inserita è un numero negativo"); }
             this.capacity = capacity;
+        }
+        private void SetPlaces(int places)
+        {
+            if (places < 0)
+            { throw new Exception("I posti inseriti sono un numero negativo"); }
+            if (places > capacity)
+            { throw new Exception("I posti non possono superare la capacità"); }
+            this.places = places;
         }
 
         public void ReservePlaces(int reservedPlaces)
