@@ -36,3 +36,5 @@ while (wantCancelPlaces == false)
     Console.WriteLine("Numero di posti prenotati: " + reservedPlaces);
     Console.WriteLine("Numero di posti disponibili: " + availablePlaces);
 }
+
+evento1.ToString();
